@@ -4,7 +4,7 @@
 
 前端靜態網站摩斯密碼解碼器。使用單一按鈕輸入摩斯密碼，實時顯示轉換結果。
 
-**🚀 線上試用**: [GitHub Pages](https://vibec.github.io/morse-decoder/)
+**🚀 線上試用**: [GitHub Pages](https://timcsy.github.io/vibec/)
 
 ## 📋 功能
 
@@ -27,7 +27,7 @@
 ## 🚀 使用方式
 
 ### 線上使用 (推薦)
-訪問 [GitHub Pages](https://vibec.github.io/morse-decoder/) 直接使用
+訪問 [GitHub Pages](https://timcsy.github.io/vibec/) 直接使用
 
 ### 本地開發
 
@@ -160,7 +160,7 @@ npm test
 
 - 推送到 `main` 或 `001-morse-decoder` 分支 → GitHub Actions 自動構建
 - 所有測試通過 → 自動部署至 GitHub Pages
-- 部署後可立即訪問線上版本
+- 部署後可訪問: https://timcsy.github.io/vibec/
 
 ## ♿ 無障礙性
 

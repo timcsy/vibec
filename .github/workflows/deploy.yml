@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, 001-morse-decoder ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, 001-morse-decoder ]
 
 permissions:
   contents: read

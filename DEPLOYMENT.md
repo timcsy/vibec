@@ -40,7 +40,7 @@ GitHub Actions 會自動檢測並使用 `.github/workflows/deploy.yml`
 
 部署完成後，訪問：
 ```
-https://vibec.github.io/morse-decoder/
+https://timcsy.github.io/vibec/
 ```
 
 ## 🧪 線上測試 UI
@@ -125,9 +125,9 @@ https://vibec.github.io/morse-decoder/
 
 | 環境 | URL |
 |------|-----|
-| GitHub Pages | `https://vibec.github.io/morse-decoder/` |
-| Actions 日誌 | `https://github.com/vibec/vibec/actions` |
-| 源代碼 | `https://github.com/vibec/vibec` |
+| GitHub Pages | `https://timcsy.github.io/vibec/` |
+| Actions 日誌 | `https://github.com/timcsy/vibec/actions` |
+| 源代碼 | `https://github.com/timcsy/vibec` |
 
 ## 🆘 故障排查
 
