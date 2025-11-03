@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>摩斯密碼解碼器 - Morse Decoder</title>
+  <script type="module" crossorigin src="/assets/index-hNupCm1Y.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DTbv2vmj.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>摩斯密碼解碼器</h1>
+      <p class="subtitle">Morse Code Decoder</p>
+    </header>
+
+    <main>
+      <!-- 幫助提示區域 -->
+      <section class="help-section" aria-label="使用說明">
+        <h2>使用方式</h2>
+        <div class="help-content">
+          <p>
+            <strong>快速點擊</strong> = 點 (·) |
+            <strong>按住</strong> = 線 (—) |
+            <strong>釋放</strong> = 分隔字符
+          </p>
+          <p class="hint">停頓超過 1 秒將自動分隔單詞</p>
+        </div>
+      </section>
+
+      <!-- 主要輸入按鈕區域 -->
+      <section class="input-section" aria-label="摩斯密碼輸入">
+        <div class="morse-display-container">
+          <!-- 當前摩斯序列顯示 -->
+          <div class="morse-sequence-display">
+            <label for="morse-output">當前摩斯序列:</label>
+            <output id="morse-output" role="status" aria-live="polite">
+              <span class="empty-state">等待輸入...</span>
+            </output>
+          </div>
+
+          <!-- 對應字符顯示 -->
+          <div class="character-display">
+            <label for="char-output">字符:</label>
+            <output id="char-output" role="status" aria-live="polite">
+              <span class="empty-state">-</span>
+            </output>
+          </div>
+        </div>
+
+        <!-- 主要輸入按鈕 -->
+        <button
+          id="main-button"
+          class="main-button"
+          aria-label="摩斯密碼輸入按鈕（快速點擊=點，按住=線，釋放=分隔）"
+          aria-pressed="false"
+        >
+          按住輸入摩斯密碼
+        </button>
+
+        <!-- 文字結果顯示 -->
+        <div class="result-section">
+          <label for="message-output">解碼結果:</label>
+          <output id="message-output" class="message-display" role="status" aria-live="polite">
+            <span class="empty-state">訊息將顯示在此</span>
+          </output>
+        </div>
+      </section>
+
+      <!-- 控制按鈕區域 -->
+      <section class="controls-section" aria-label="編輯控制">
+        <div class="button-group">
+          <button
+            id="undo-button"
+            class="control-button undo-button"
+            aria-label="撤銷（移除最後一個點或線）"
+          >
+            ↶ 撤銷
+          </button>
+
+          <button
+            id="clear-button"
+            class="control-button clear-button"
+            aria-label="清除（清空所有內容）"
+          >
+            ✕ 清除
+          </button>
+        </div>
+      </section>
+
+      <!-- 摩斯密碼對照表 -->
+      <section class="reference-section" aria-label="摩斯密碼參考">
+        <details>
+          <summary>摩斯密碼對照表 (A-Z)</summary>
+          <div class="morse-reference">
+            <table>
+              <tbody id="morse-table-body">
+                <!-- 動態生成 -->
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <!-- 無效序列提示 -->
+      <div id="error-message" class="error-message" role="alert" aria-live="assertive"></div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Vibec Morse Decoder | WCAG 2.1 AA 無障礙標準</p>
+    </footer>
+  </div>
+
+</body>
+</html>
