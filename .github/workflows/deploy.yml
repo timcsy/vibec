@@ -2,9 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main, 001-morse-decoder ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, 001-morse-decoder ]
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref_name == 'main'
+        if: github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
