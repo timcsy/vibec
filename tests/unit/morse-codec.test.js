@@ -14,7 +14,7 @@ import {
   encodeMorseMessage,
   getSupportedCharacters,
   getMorseTable
-} from '../scripts/morse-codec.js';
+} from '../../src/scripts/morse-codec.js';
 
 describe('Morse Codec - 基礎轉換', () => {
   it('應正確從摩斯轉換為字符 - 字母', () => {
@@ -41,12 +41,12 @@ describe('Morse Codec - 基礎轉換', () => {
   it('應正確從字符轉換為摩斯', () => {
     expect(characterToMorse('A')).toBe('.-');
     expect(characterToMorse('B')).toBe('-...');
-    expect(characterToMorse('Z')).toBe('--...');
+    expect(characterToMorse('Z')).toBe('--..');
   });
 
   it('應處理大小寫字符', () => {
     expect(characterToMorse('a')).toBe('.-');
-    expect(characterToMorse('z')).toBe('--...');
+    expect(characterToMorse('z')).toBe('--..');
   });
 
   it('應返回 null 對於無效摩斯序列', () => {

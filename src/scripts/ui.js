@@ -3,7 +3,8 @@
  * 負責頁面 UI 的所有更新邏輯
  */
 
-import { standardToVisual, DOT_SYMBOL, DASH_SYMBOL } from './constants.js';
+import { standardToVisual } from './morse-codec.js';
+import { DOT_SYMBOL, DASH_SYMBOL } from './constants.js';
 
 /**
  * 更新摩斯序列顯示區

@@ -9,7 +9,7 @@ import {
   characterToMorse,
   isValidMorse,
   standardToVisual
-} from '../scripts/morse-codec.js';
+} from '../../src/scripts/morse-codec.js';
 
 /**
  * 模擬按鈕輸入的輔助函數
@@ -66,21 +66,20 @@ class MorseInputSimulator {
 
     const lastAction = this.history.pop();
     if (lastAction === ' ') {
-      // 撤銷字符分隔
-      let reversedSequence = '';
-      for (let i = this.history.length - 1; i >= 0; i--) {
-        if (this.history[i] === ' ') break;
-        reversedSequence = this.history[i] + reversedSequence;
+      // 撤銷已完成的字符 - 移除該字符的所有點/線
+      while (this.history.length > 0 && this.history[this.history.length - 1] !== ' ') {
+        this.history.pop();
       }
-      this.sequence = reversedSequence;
+      this.sequence = '';
+      // 移除已完成的字符
+      if (this.message.length > 0) {
+        this.message = this.message.slice(0, -1);
+      }
     } else {
-      // 撤銷點或線
+      // 撤銷未完成序列中的點或線
       this.sequence = this.sequence.slice(0, -1);
     }
 
-    if (this.message.length > 0) {
-      this.message = this.message.slice(0, -1);
-    }
     return true;
   }
 
@@ -273,13 +272,13 @@ describe('User Story 1 - 使用單一按鈕輸入摩斯密碼', () => {
       simulator.simulateDot();
       simulator.simulateDot();
 
-      expect(simulator.getState().currentSequence).toBe('.-..'); // B
+      expect(simulator.getState().currentSequence).toBe('.-..'); // L
 
       simulator.undo();
-      expect(simulator.getState().currentSequence).toBe('-..'); // 移除最後點
+      expect(simulator.getState().currentSequence).toBe('.-.'); // 移除最後點
 
       simulator.undo();
-      expect(simulator.getState().currentSequence).toBe('..');
+      expect(simulator.getState().currentSequence).toBe('.-');
     });
 
     it('應能撤銷已完成的字符', () => {
@@ -327,10 +326,10 @@ describe('User Story 1 - 使用單一按鈕輸入摩斯密碼', () => {
       // 再次輸入
       simulator.simulateDash();
       simulator.simulateDash();
-      simulator.simulateDash(); // T
+      simulator.simulateDash(); // O
       simulator.finalizeCharacter();
 
-      expect(simulator.message).toBe('T');
+      expect(simulator.message).toBe('O');
     });
   });
 
