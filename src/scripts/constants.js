@@ -75,6 +75,14 @@ Object.entries(MORSE_CODE_TABLE).forEach(([char, morse]) => {
 export const DOT_SYMBOL = '·';
 export const DASH_SYMBOL = '—';
 
+// 轉換標準摩斯 (.-) 為視覺符號 (·—)
+export function standardToVisual(standardMorse) {
+  if (!standardMorse) return '';
+  return standardMorse
+    .replace(/\./g, DOT_SYMBOL)
+    .replace(/-/g, DASH_SYMBOL);
+}
+
 // 時間閾值 (毫秒)
 export const DOT_THRESHOLD = 500;    // <500ms = 點
 export const PAUSE_THRESHOLD = 1000; // >1000ms = 單詞分隔
